@@ -1,0 +1,6 @@
+*/__pycache__/*
+__pycache__
+.idea
+data/x_ray
+data/new_x_ray
+test.ipynb
