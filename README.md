@@ -24,7 +24,7 @@ During this phase, we employ a VGG16 model for training on our dataset, utilizin
 
 ### Handling OOD Data
 
-To address OOD data, we explore four straightforward methodologies: Maximum Logit Score (MLS), Maximum Softmax Probability (MSP), Entropy, and Energy. Each method's efficacy is assessed in dedicated notebooks.
+To address OOD data, we explore four straightforward methodologies: Maximum Logit Score (`MLS`), Maximum Softmax Probability (`MSP`), `Entropy`, and `Energy`. Each method's efficacy is assessed in dedicated notebooks.
 
 **Important Note:** The thresholds for these OOD methods require tuning, a step we did not undertake in this project. Future work could involve optimizing these thresholds for improved performance.
 You can also run prediction on your image without using any of those mentioned OOD methods by just not passing any input to the `-ood` parameter.
