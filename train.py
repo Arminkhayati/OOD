@@ -17,7 +17,6 @@ import argparse
 parser = argparse.ArgumentParser(description='Train a VGG16 model for X-ray classification.')
 parser.add_argument('--data_dir', type=str, default="data/new_x_ray", help='Directory containing the dataset')
 parser.add_argument('--num_classes', type=int, default=5, help='Number of classes')
-parser.add_argument('--img_size', type=int, default=224, help='Size of the input images')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch size for training')
 parser.add_argument('--epochs', type=int, default=100, help='Number of epochs to train')
 parser.add_argument('--test_size', type=float, default=0.25, help='Validation split size')
@@ -26,7 +25,8 @@ parser.add_argument('--labels_csv', type=str, default="labels_x_ray.csv", help='
 args = parser.parse_args()
 
 # Constants
-TARGET_SIZE: Tuple[int, int] = (args.img_size, args.img_size)
+IMG_SIZE: int = 224
+TARGET_SIZE: Tuple[int, int] = (IMG_SIZE, IMG_SIZE)
 OUTPUT_PATH: str = "output"
 WEIGHT_PATH: str = os.path.join(OUTPUT_PATH, "weights.best.weight")
 
@@ -125,7 +125,7 @@ def build_and_compile_model() -> Model:
     Returns:
         Model: The compiled TensorFlow model.
     """
-    inputs = Input(shape=(args.img_size, args.img_size, 3))
+    inputs = Input(shape=(IMG_SIZE, IMG_SIZE, 3))
     base_model = VGG16(weights='imagenet', include_top=False, input_tensor=inputs)
     base_model.trainable = False
 

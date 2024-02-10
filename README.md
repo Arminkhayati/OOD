@@ -31,7 +31,7 @@ The workflow is organized into three main phases:
 
 ### Data Preprocessing
 
-The initial phase involves manual screening to eliminate irrelevant or poor-quality images as thoroughly as possible. Subsequently, the filtered images are converted to grayscale to facilitate the training process.
+The initial phase involves manual screening to eliminate irrelevant or poor-quality images as thoroughly as possible. I created two lists of irrelevant images namely as `strict` and `non-strict` cleaned images. Subsequently, the filtered images are converted to grayscale to facilitate the training process. The model is trained on strictly cleaned images but its performance is assessed on both groups.
 
 ### Model Training
 
@@ -52,7 +52,7 @@ You can also run prediction on your image without using any of those mentioned O
 To run the train script, navigate to the script's directory in your terminal and use the following command format:
 ```
 conda activate ood
-python train.py --data_dir <path_to_data_directory> --bad_files <bad_files_to_ignore> [--num_classes <number_of_classes> ][--img_size <input_image_size>] [--batch_size <batch_size>] [--epochs <number_of_epochs>] [--test_size <validation_split_size>] [--labels_csv <dataset_csv_info_file>]
+python train.py --data_dir <path_to_data_directory> --bad_files <bad_files_to_ignore> [--num_classes <number_of_classes>] [--batch_size <batch_size>] [--epochs <number_of_epochs>] [--test_size <validation_split_size>] [--labels_csv <dataset_csv_info_file>]
 ```
 
 ### Arguments
@@ -60,7 +60,6 @@ python train.py --data_dir <path_to_data_directory> --bad_files <bad_files_to_ig
 - `--data_dir` (required): The directory containing the dataset and `labels_x_ray.csv` file.
 - `--bad_files` (required): The file name of the txt file containing filtered files to ignore them. File must be in `data_dir` directory.
 - `--num_classes` (optional): The number of classes in the dataset. Default is 5.
-- `--img_size` (optional): The size of the input images. The script resizes all images to this size. Default is 224.
 - `--batch_size` (optional): The batch size for training. Default is 32.
 - `--epochs` (optional): The number of epochs for which the model will be trained. Default is 100.
 - `--test_size` (optional): The ratio of the dataset to be used as validation set. Default is 0.25.
