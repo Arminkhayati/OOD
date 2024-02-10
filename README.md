@@ -80,3 +80,5 @@ python predict.py -i <image_file_name> [-ood <ood_method>] [-dd <data_directory>
 - `-ood`, `--ood-method`: Optional. Specifies the Out-of-Distribution detection method to use. Leave blank if not using OOD detection.
 - `-dd`, `--data-dir`: Optional. The directory where your images are stored. Defaults to `data/x_ray`.
 - `-m`, `--model`: Optional. The path to the trained model file. Defaults to `model/vgg16-0.96-full_model.h5`.
+- `-s`, `--strict`: Optional. Run prediction based on stricted or non-stricted threshold.
+- `-rl`, `--return_label`: Optional. Whether to return string label or int index of the predicted class.
